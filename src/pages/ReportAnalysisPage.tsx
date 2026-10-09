@@ -432,7 +432,7 @@ export const ReportAnalysisPage: React.FC = () => {
   const { reportId } = useParams<{ reportId: string }>()
   const navigate = useNavigate()
   const { user } = useAuth()
-  const { language, t, getOrFetchReportTranslation, isTranslatingReport } = useLanguage()
+  const { language, t, getOrFetchReportTranslation } = useLanguage()
   const [report, setReport] = React.useState<MedicalReport | null>(null)
   const [loading, setLoading] = React.useState(true)
   const [filterStatus, setFilterStatus] = React.useState<'all' | 'outside'>('all')
@@ -474,7 +474,7 @@ export const ReportAnalysisPage: React.FC = () => {
   const analysis: MedicalAnalysis = React.useMemo(() => {
     if (!report) return DEMO_ANALYSIS
     // Prefer Firestore `analysis` field (from Cloud Functions pipeline)
-    const a = (report as Record<string, unknown>).analysis as MedicalAnalysis | undefined
+    const a = (report as unknown as Record<string, unknown>).analysis as MedicalAnalysis | undefined
     if (a?.tests && a.tests.length > 0) return a
     // Fallback to legacy `explanation` field
     const exp = report.explanation

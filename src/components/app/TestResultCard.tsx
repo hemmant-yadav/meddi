@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   ChevronDown,
   ChevronUp,
-  AlertTriangle,
   CheckCircle2,
   ArrowDown,
   ArrowUp,
@@ -12,6 +11,7 @@ import {
   Info,
   BookOpen,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { RangeIndicator } from './RangeIndicator'
 import { useNavigate } from 'react-router-dom'
 
@@ -37,7 +37,7 @@ const STATUS_META: Record<
   TestStatus,
   {
     label: string
-    icon: React.ElementType
+    icon: LucideIcon
     bg: string
     iconColor: string
     labelColor: string

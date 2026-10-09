@@ -10,12 +10,9 @@ import {
   ChevronDown,
   ChevronUp,
   MessageSquare,
-  Sparkles,
   X,
-  Info,
 } from 'lucide-react'
 import { HEALTH_GLOSSARY_TERMS, type GlossaryTerm } from '@/data/healthGlossaryData'
-import { useLanguage } from '@/contexts/LanguageContext'
 
 const CATEGORIES = [
   'All',
@@ -30,7 +27,7 @@ type CategoryType = (typeof CATEGORIES)[number]
 
 export const HealthGlossaryPage: React.FC = () => {
   const navigate = useNavigate()
-  const { t } = useLanguage()
+
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<CategoryType>('All')
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null)
