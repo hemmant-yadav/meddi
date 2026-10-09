@@ -199,7 +199,7 @@ class FirebaseServiceImpl implements IFirebaseService {
     }
   }
 
-  private notifySubscribers(uid: string, reportId: string, report: MedicalReport) {
+  private notifySubscribers(uid: string, reportId: string, report: MedicalReport | null) {
     const key = `${uid}_${reportId}`
     const subs = this.demoSubscribers.get(key)
     if (subs) {

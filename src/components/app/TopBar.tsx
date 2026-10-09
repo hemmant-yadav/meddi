@@ -11,7 +11,6 @@ import {
   User,
   Settings,
   Activity,
-  Globe,
 } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -106,7 +105,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onMenuClick }) => {
           {/* User Menu */}
           <div className="relative" ref={userMenuRef}>
             <button
-              onClick={() => { setUserMenuOpen(v => !v); setLangMenuOpen(false) }}
+              onClick={() => { setUserMenuOpen(v => !v) }}
               className="flex items-center gap-2 pl-1 pr-2 py-1 rounded-xl hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500"
               aria-haspopup="menu"
               aria-expanded={userMenuOpen}
